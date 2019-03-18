@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Draggable from 'react-draggable';
 import BackgroundGrid from './BackgroundGrid';
-import GraphNode from './GraphNode';
+import SidebarMenu from './components/SidebarMenu';
+import GraphNodeProvider from './contexts/GraphNodeProvider';
+import GraphNodeRenderer from './components/GraphNodeRenderer';
 
 class App extends Component {
   render() {
     return (
       <>
-        <BackgroundGrid>
-          <GraphNode />
-
-        </BackgroundGrid>
+        <GraphNodeProvider>
+          <SidebarMenu>
+            <BackgroundGrid>
+              <GraphNodeRenderer />
+            </BackgroundGrid>
+          </SidebarMenu>
+        </GraphNodeProvider>
       </>
-
     );
   }
 }
