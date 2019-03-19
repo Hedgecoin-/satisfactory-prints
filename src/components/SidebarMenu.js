@@ -27,8 +27,8 @@ class SidebarMenu extends Component {
             width='thin'
           >
             <SidebarItem name='Iron Node' />
-            <SidebarItem name='Miner' />
-            <SidebarItem name='Smelter' />
+            <SidebarItem name='Miner Mk1' />
+            <SidebarItem name='Smelter Mk1' />
             <SidebarItem name='Constructor' />
           </Sidebar>
 
