@@ -6,12 +6,12 @@ export default class GraphNodeProvider extends Component {
 
   state = {
     nodes: [],
+    grid: [10, 10],
     createNode: node => this.setState(prevState => ({ nodes: [...prevState.nodes, node] }))
   }
 
 
   render() {
-    console.log(this.state.nodes)
     return (
       <GraphNodeContext.Provider value={this.state}>
         {this.props.children}
@@ -26,7 +26,7 @@ export function withGraphNodes(WrappedComponent) {
     render() {
       return (
         <GraphNodeContext.Consumer>
-          {(context) => <WrappedComponent nodes={context.nodes} createNode={context.createNode} {...this.props} />}
+          {(context) => <WrappedComponent nodes={context.nodes} createNode={context.createNode} grid={context.grid} {...this.props} />}
         </GraphNodeContext.Consumer>
       )
     }

@@ -11,11 +11,12 @@ class SidebarItem extends Component {
 
   createGraphNodeAtPosition = (e, n) => {
     console.log(e, n)
-    const { name, createNode } = this.props
+    const { name, createNode, grid } = this.props
 
-    let grid = 10;
-    let x = FitToGrid(e.offsetX, grid);
-    let y = FitToGrid(e.offsetY, grid);
+    let [gridX, gridY] = grid;
+
+    let x = FitToGrid(e.offsetX, gridX);
+    let y = FitToGrid(e.offsetY, gridY);
 
     createNode({
       x: x,

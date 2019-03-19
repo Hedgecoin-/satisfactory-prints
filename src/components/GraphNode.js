@@ -2,11 +2,11 @@ import React from 'react';
 import Draggable from 'react-draggable';
 
 
-const GraphNode = ({ x, y, name }) => {
+const GraphNode = ({ x, y, name, grid }) => {
   console.log(y);
   return (
     <Draggable
-      grid={[10, 10]}
+      grid={grid}
       defaultPosition={{ x: x, y: y }}
     >
       <div style={{
