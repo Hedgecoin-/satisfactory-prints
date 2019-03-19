@@ -12,9 +12,14 @@ class SidebarItem extends Component {
   createGraphNodeAtPosition = (e, n) => {
     console.log(e, n)
     const { name, createNode } = this.props
+
+    let grid = 10;
+    let x = FitToGrid(e.offsetX, grid);
+    let y = FitToGrid(e.offsetY, grid);
+
     createNode({
-      x: e.offsetX,
-      y: e.offsetY,
+      x: x,
+      y: y,
       name: name,
     })
   }
@@ -34,3 +39,16 @@ class SidebarItem extends Component {
 }
 
 export default withGraphNodes(SidebarItem);
+
+
+function FitToGrid(n, grid) {
+  let halfGrid = (grid / 2) | 0;
+  let remainder = n % grid;
+
+  if (remainder > halfGrid) {
+    return n + (grid - remainder);
+  }
+  else {
+    return n - remainder;
+  }
+}
